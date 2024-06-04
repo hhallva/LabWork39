@@ -1,0 +1,37 @@
+﻿<Window x:Class="Task5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task5"
+        mc:Ignorable="d"
+            Title="Данные"
+    MinHeight="660" MinWidth="1020">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="26"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="Путь к папке:" Grid.Column="0"/>
+            <TextBox x:Name="DirectoryTextBox" Text="C:\Temp" VerticalAlignment="Center"  Grid.Column="1" Margin="0,0,10,0"/>
+        </Grid>
+
+        <DataGrid x:Name="resultDataGrid" Grid.Row="1" AutoGenerateColumns="False" IsReadOnly="True" Margin="10,10,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название папки" Binding="{Binding DirectoryName}" />
+                <DataGridTextColumn Header="Количество файлов" Binding="{Binding FilesCount}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
